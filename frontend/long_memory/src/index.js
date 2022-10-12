@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
+// import * as Sentry from "@sentry/react";
+// import { BrowserTracing } from "@sentry/tracing";
 import {UserProvider} from "./components/UserProvider/UserProvider";
-import { SENTRY_DSN } from './functions/api_constants';
+// import { SENTRY_DSN } from './functions/api_constants';
 
 
 // Sentry.init({

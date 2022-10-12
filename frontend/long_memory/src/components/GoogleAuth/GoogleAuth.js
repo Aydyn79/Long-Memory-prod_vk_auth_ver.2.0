@@ -1,27 +1,32 @@
-import { GoogleLogin } from 'react-google-login';
+import { useEffect } from 'react'
 
-const CLIENTID = '140073813105-vlnmg68m0h9g2uoriu4q32d7e84sn3hc.apps.googleusercontent.com';
+function Login() {
 
-function Login(){
-    const onSuccess = (res) => {
-        console.log("Login success! Current user: ", res.profileObj);
-    }
-     const onFailure = (res) => {
-        console.log("Login failed! responce: ", res);
-    }
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+  }
 
-    return(
-    <div id="signInButton">
-        <GoogleLogin
-            clientId=CLIENTID
-            buttonText="Login"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={'single_host_origin'}
-            isSignedIn={true}
-        />,
-    <div/>
-    )
+
+  useEffect(() => {
+    /*global google*/
+    google.accounts.id.initialize({
+      client_id: "140073813105-05evcieag1t9grl4o261n969t7oco9h3.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme: "outline", size: "large" }
+    );
+  }, [])
+
+  return (
+    <div>
+      <div id="signInDiv"></div>
+    </div>
+  );
 }
+
+
 
 export default Login;

@@ -17,6 +17,9 @@ import PersonalArea from './components/PersonalArea/PersonalArea'
 import AddMaterials from './components/AddMaterials/AddMaterials'
 import ActivationUser from './components/ActivationUser/ActivationUser'
 import VkAuth from './components/VkAuth/VkAuth'
+// import { gapi } from 'gapi-script'
+
+const clientId = '140073813105-vlnmg68m0h9g2uoriu4q32d7e84sn3hc.apps.googleusercontent.com';
 
 export default function App() {
     const {

@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import classes from "./Header.module.css";
 import useUserContext from "../../hooks/useUserContext";
 import {set_token_to_storage} from "../../functions/tokenStorage"
+import Login from "../GoogleAuth/GoogleAuth"
 
 const logout = (setToken, navigate) => {
     navigate("/main");
@@ -30,6 +31,7 @@ const Header = () => {
 
                 {!token ?
                     <div className={classes.user_menu}>
+                        <Login/>
                         <Link to='/registration'>
                             <button className={classes.button}>Регистрация</button>
                         </Link>

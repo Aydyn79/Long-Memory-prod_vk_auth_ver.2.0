@@ -26,14 +26,7 @@ from rest_auth.registration.views import SocialLoginView
 
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
-    client_class = OAuth2Client
-    serializer_class = SocialLoginSerializer
-
-    def get_serializer(self, *args, **kwargs):
-        serializer_class = self.get_serializer_class()
-        kwargs['context'] = self.get_serializer_context()
-        return serializer_class(*args, **kwargs)
-
+    # client_class = OAuth2Client
 
 
 class CreateUserView(CreateAPIView):
