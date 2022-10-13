@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import classes from "./Header.module.css";
 import useUserContext from "../../hooks/useUserContext";
 import {set_token_to_storage} from "../../functions/tokenStorage"
+import Login from "../GoogleAuth/GoogleAuth"
 
 const logout = (setToken, navigate) => {
     navigate("/main");
@@ -30,6 +31,7 @@ const Header = () => {
 
                 {!token ?
                     <div className={classes.user_menu}>
+                        <Login/>
                         <a className={classes.button} href='https://oauth.vk.com/authorize?client_id=51403117&display=page&redirect_uri=http://localhost:3000/vk_auth&scope=friends,email,offline&response_type=token&v=5.131'>
                         <img className={classes.vk_logo} />
                         </a>
