@@ -19,7 +19,7 @@ function Login() {
 
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
-      { theme: "outline", size: "large" }
+      { theme: "filled_blue", size: "large", type:"icon" }
     );
   }, [])
 
