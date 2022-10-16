@@ -22,13 +22,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',
+
     # my applications
     'users.apps.UsersConfig',
     'notifications.apps.NotificationsConfig',
     'bug_report.apps.BugReportConfig',
     # ---------------
-    'rest_framework.authtoken'
+
 ]
 
 MIDDLEWARE = [
@@ -162,3 +162,5 @@ EMAIL_HOST = config['EMAIL_HOST']
 EMAIL_PORT = config['EMAIL_PORT']
 DOMAIN_NAME = config['DOMAIN_NAME']
 EMAIL_USE_TLS = True
+GOOGLE_ID_CLIENT = config['GOOGLE_ID_CLIENT']
+GOOGLE_SECRET_KEY = config['GOOGLE_SECRET_KEY']

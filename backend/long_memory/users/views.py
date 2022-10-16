@@ -26,7 +26,7 @@ from rest_auth.registration.views import SocialLoginView
 
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
-    # client_class = OAuth2Client
+    client_class = OAuth2Client
 
 
 class CreateUserView(CreateAPIView):

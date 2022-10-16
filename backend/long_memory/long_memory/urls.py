@@ -9,8 +9,9 @@ from notifications.views import NotificationsListCreateView, NotificationsDelete
 from bug_report.views import BugReportCreateView
 
 urlpatterns = [
-    path('auth/google/', GoogleLogin.as_view(), name='google_login'),
-    # path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    # path('auth/google/', GoogleLogin.as_view(), name='google_login'),
+    path('api/v1/rest-auth/google_auth/', GoogleLogin.as_view(), name='google_login'),
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path('admin/', admin.site.urls),
     path('api/user_data/', UserView.as_view()),
     path('api/bug_report/', BugReportCreateView.as_view()),

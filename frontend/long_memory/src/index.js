@@ -5,7 +5,7 @@ import App from './App';
 // import { BrowserTracing } from "@sentry/tracing";
 import {UserProvider} from "./components/UserProvider/UserProvider";
 // import { SENTRY_DSN } from './functions/api_constants';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // Sentry.init({
 //   dsn: SENTRY_DSN,
@@ -15,7 +15,9 @@ import {UserProvider} from "./components/UserProvider/UserProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <UserProvider>
-        <App/>
-    </UserProvider>
+    <GoogleOAuthProvider clientId="140073813105-05evcieag1t9grl4o261n969t7oco9h3.apps.googleusercontent.com">
+        <UserProvider>
+            <App/>
+        </UserProvider>
+    </GoogleOAuthProvider>
 );

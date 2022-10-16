@@ -3,7 +3,10 @@ import {Link, useNavigate} from "react-router-dom";
 import classes from "./Header.module.css";
 import useUserContext from "../../hooks/useUserContext";
 import {set_token_to_storage} from "../../functions/tokenStorage"
-import Login from "../GoogleAuth/GoogleAuth"
+// import Login from "../GoogleAuth/GoogleAuth"
+import { GoogleLogin } from '@react-oauth/google';
+
+
 
 const logout = (setToken, navigate) => {
     navigate("/main");
@@ -31,7 +34,14 @@ const Header = () => {
 
                 {!token ?
                     <div className={classes.user_menu}>
-                        <Login/>
+                        <GoogleLogin
+                            onSuccess={credentialResponse => {
+                                console.log(credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+                        />
                         <Link to='/registration'>
                             <button className={classes.button}>Регистрация</button>
                         </Link>
