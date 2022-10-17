@@ -4,7 +4,9 @@ import classes from "./Header.module.css";
 import useUserContext from "../../hooks/useUserContext";
 import {set_token_to_storage} from "../../functions/tokenStorage"
 // import Login from "../GoogleAuth/GoogleAuth"
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
+import MyCustomButton from '../GoogleAuth/Button';
+import Login from "../GoogleAuth/googleLogin"
 
 
 
@@ -34,14 +36,17 @@ const Header = () => {
 
                 {!token ?
                     <div className={classes.user_menu}>
-                        <GoogleLogin
+                        {/* <GoogleLogin
                             onSuccess={credentialResponse => {
                                 console.log(credentialResponse);
                             }}
                             onError={() => {
                                 console.log('Login Failed');
                             }}
-                        />
+                        /> */}
+                        <MyCustomButton onClick={() => Login()}>Google
+                        </MyCustomButton>;
+
                         <Link to='/registration'>
                             <button className={classes.button}>Регистрация</button>
                         </Link>
